@@ -1,17 +1,24 @@
-import {Container} from '@mui/material';
 import StationsList from './components/Stations/StationsList';
-import MiniDrawer from './components/Drawer';
-import Box  from '@mui/system/Box';
+import DishesTable from './components/Dishes/DishesTable';
+import Root from './layout/Root';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<Root />}>
+    <Route path="stations" element={<StationsList />}/>
+    <Route path="dishes" element={<DishesTable/>}/>
+  </Route>,
+
+));
 
 const App: React.FC = () => {
   return (
-    <Box>
-      <MiniDrawer header='Stations'>
-      <Container>
-        <StationsList/>
-      </Container>
-      </MiniDrawer>
-    </Box>
+    <RouterProvider router={router}/>
   );
 };
 

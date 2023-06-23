@@ -9,15 +9,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import Container from '@mui/material/Container/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { ColorModeContext } from './ToggleColorMode';
 import ColorModeToggleButton from './ColorModeToggleButton';
 import { useContext } from 'react';
@@ -25,6 +20,8 @@ import CountertopsIcon from '@mui/icons-material/Countertops';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import DownloadIcon from '@mui/icons-material/Download';
+import { Outlet, useLocation } from 'react-router-dom';
+import ListItemLink from './ListItemLink';
 
 const drawerWidth = 240;
 
@@ -97,7 +94,23 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer({ children, header }: { children: React.ReactNode; header?: string }) {
+export default function Root() {
+  const location = useLocation();
+
+  const getPageTitle = () => {
+    switch (location.pathname) {
+      case '/stations':
+        return 'Stations';
+      case '/dishes':
+        return 'Dishes';
+      case '/components':
+        return 'Components';
+      case '/downloads':
+        return 'Downloads';
+      default:
+        return 'Other Title';
+    }
+  };
   const colorMode = useContext(ColorModeContext);
 
   const theme = useTheme();
@@ -129,7 +142,7 @@ export default function MiniDrawer({ children, header }: { children: React.React
             <MenuIcon />
           </IconButton>
           <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1 }}>
-            {header}
+            {getPageTitle()}
           </Typography>
           <ColorModeToggleButton onToggle={colorMode.toggleColorMode} />
         </Toolbar>
@@ -158,33 +171,17 @@ export default function MiniDrawer({ children, header }: { children: React.React
                 {
                     name: 'Download',
                     icon: <DownloadIcon/>,
-                }].map((item, index) => (
-            <ListItem key={item.name} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                }].map((item) => (
+
+            <ListItemLink key={item.name} to={item.name.toLowerCase()} primary={item.name} icon={item.icon} open={open}/>
           ))}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {children}
+        <Container>
+          <Outlet />
+        </Container>
       </Box>
     </Box>
   );

@@ -5,14 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
 import { Provider } from 'react-redux';
-import ToggleColorMode from './components/ToggleColorMode';
+import ToggleColorMode from './layout/ToggleColorMode';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 
 const root = ReactDOM.createRoot(

@@ -4,15 +4,11 @@ import Station from './Station'
 
 const StationsList = () => {
     return (
-        <>
-            <Grid container spacing={3}>
-                <Station/>
-                <Station/>
-                <Station/>
-
-            </Grid>
-
-        </>
+        <Grid container spacing={3}>
+            <Station/>
+            <Station/>
+            <Station/>
+        </Grid>
     );
 }
 
