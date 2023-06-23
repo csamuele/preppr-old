@@ -1,18 +1,24 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, selectCounter } from './counterSlice';
+import {Container} from '@mui/material';
+import StationsList from './features/StationsList';
+import MiniDrawer from './components/Drawer';
+import Box  from '@mui/system/Box';
+// import { ColorModeContext } from './components/ToggleColorMode';
+// import ColorModeToggleButton  from './components/ColorModeToggleButton';
+// import { useContext } from 'react';
+
+
 
 const App: React.FC = () => {
-  const count = useSelector(selectCounter);
-  const dispatch = useDispatch();
-  const handleIncrement = () => dispatch(increment());
-  const handleDecrement = () => dispatch(decrement());
+  // const colorMode = useContext(ColorModeContext);
   return (
-    <div>
-      <h1>Counter: {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-    </div>
+    <Box>
+      <MiniDrawer header='Stations'>
+      <Container>
+        {/* <ColorModeToggleButton onToggle={colorMode.toggleColorMode}/> */}
+        <StationsList/>
+      </Container>
+      </MiniDrawer>
+    </Box>
   );
 };
 
