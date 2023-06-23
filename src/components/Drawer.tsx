@@ -128,7 +128,7 @@ export default function MiniDrawer({ children, header }: { children: React.React
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1 }}>
             {header}
           </Typography>
           <ColorModeToggleButton onToggle={colorMode.toggleColorMode} />
