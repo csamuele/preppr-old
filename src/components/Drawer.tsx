@@ -21,6 +21,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import { ColorModeContext } from './ToggleColorMode';
 import ColorModeToggleButton from './ColorModeToggleButton';
 import { useContext } from 'react';
+import CountertopsIcon from '@mui/icons-material/Countertops';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import WidgetsIcon from '@mui/icons-material/Widgets';
+import DownloadIcon from '@mui/icons-material/Download';
 
 const drawerWidth = 240;
 
@@ -138,8 +142,24 @@ export default function MiniDrawer({ children, header }: { children: React.React
         </DrawerHeader>
         <Divider />
         <List>
-          {['Stations', 'Dishes', 'Components', 'Download'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+          {[
+                {
+                    name: 'Stations',
+                    icon: <CountertopsIcon/>
+                }, 
+                {
+                    name: 'Dishes',
+                    icon: <DinnerDiningIcon/>,
+                },
+                {
+                    name: 'Components',
+                    icon: <WidgetsIcon/>,
+                },
+                {
+                    name: 'Download',
+                    icon: <DownloadIcon/>,
+                }].map((item, index) => (
+            <ListItem key={item.name} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -154,9 +174,9 @@ export default function MiniDrawer({ children, header }: { children: React.React
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
