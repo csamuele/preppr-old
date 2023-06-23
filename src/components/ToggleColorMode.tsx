@@ -1,16 +1,16 @@
-import React, { useMemo, useState, createContext, ReactNode } from 'react';
+import { useMemo, useState, createContext, ReactNode } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 type ColorMode = 'light' | 'dark';
 
 interface ColorModeContextProps {
-  mode?: ColorMode;
+  mode: ColorMode;
   toggleColorMode: () => void;
-
 }
 
 export const ColorModeContext = createContext<ColorModeContextProps>({
   toggleColorMode: () => {},
+  mode: 'light',
 });
 
 interface ToggleColorModeProps {
@@ -18,17 +18,19 @@ interface ToggleColorModeProps {
 }
 
 const ToggleColorMode: React.FC<ToggleColorModeProps> = ({ children }) => {
-  const [mode, setMode] = useState<ColorMode>('light');
+  const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [mode, setMode] = useState<ColorMode>(prefersDarkMode ? 'dark' : 'light');
 
   const toggleColorMode = () => {
-    setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
   const colorMode = useMemo<ColorModeContextProps>(
     () => ({
       toggleColorMode,
+      mode,
     }),
-    []
+    [mode]
   );
 
   const theme = useMemo(
