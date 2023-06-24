@@ -1,5 +1,7 @@
-import StationsList from './components/Stations/StationsList';
-import DishesTable from './components/Dishes/DishesTable';
+import StationsPage from './components/Stations/StationsPage';
+import DishesPage from './components/Dishes/DishesPage';
+import ComponentsPage from './components/Componenents/ComponentsPage';
+import DownloadPage from './components/Download/DownloadPage';
 import Root from './layout/Root';
 import {
   createBrowserRouter,
@@ -10,8 +12,10 @@ import {
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>
-    <Route path="stations" element={<StationsList />}/>
-    <Route path="dishes" element={<DishesTable/>}/>
+    <Route path="stations" element={<StationsPage />}/>
+    <Route path="dishes" element={<DishesPage/>}/>
+    <Route path="components" element={<ComponentsPage/>}/>
+    <Route path="download" element={<DownloadPage/>}/>
   </Route>,
 
 ));

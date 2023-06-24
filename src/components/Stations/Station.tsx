@@ -3,7 +3,7 @@ import DishAccordian from './DishAccordian';
 
 const Station = () => {
     return (
-        <Grid item xs={4}>
+        <Grid item xs={12} lg={4}>
             <Card sx={{p: 2}}>
                 <Typography variant='h5' component='h2'>Station</Typography>
                 <DishAccordian/>

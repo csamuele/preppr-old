@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import Station from './Station'
 
-const StationsList = () => {
+const StationsPage = () => {
     return (
         <Grid container spacing={3}>
             <Station/>
@@ -12,4 +12,4 @@ const StationsList = () => {
     );
 }
 
-export default StationsList;
+export default StationsPage;

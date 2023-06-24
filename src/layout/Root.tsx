@@ -114,7 +114,7 @@ export default function Root() {
   const colorMode = useContext(ColorModeContext);
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false); // Set initial state to false
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -123,6 +123,19 @@ export default function Root() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  // Check screen size on component mount and set the initial state of the drawer accordingly
+  React.useEffect(() => {
+    const handleResize = () => {
+      setOpen(window.innerWidth >= theme.breakpoints.values.lg);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call handleResize initially to set the initial state
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [theme.breakpoints.values.lg]);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -156,24 +169,24 @@ export default function Root() {
         <Divider />
         <List>
           {[
-                {
-                    name: 'Stations',
-                    icon: <CountertopsIcon/>
-                }, 
-                {
-                    name: 'Dishes',
-                    icon: <DinnerDiningIcon/>,
-                },
-                {
-                    name: 'Components',
-                    icon: <WidgetsIcon/>,
-                },
-                {
-                    name: 'Download',
-                    icon: <DownloadIcon/>,
-                }].map((item) => (
-
-            <ListItemLink key={item.name} to={item.name.toLowerCase()} primary={item.name} icon={item.icon} open={open}/>
+            {
+              name: 'Stations',
+              icon: <CountertopsIcon />,
+            },
+            {
+              name: 'Dishes',
+              icon: <DinnerDiningIcon />,
+            },
+            {
+              name: 'Components',
+              icon: <WidgetsIcon />,
+            },
+            {
+              name: 'Download',
+              icon: <DownloadIcon />,
+            },
+          ].map((item) => (
+            <ListItemLink key={item.name} to={item.name.toLowerCase()} primary={item.name} icon={item.icon} open={open} />
           ))}
         </List>
       </Drawer>
