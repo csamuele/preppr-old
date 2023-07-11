@@ -1,4 +1,4 @@
-import { useMemo, useState, createContext, ReactNode } from 'react';
+import { useMemo, useState, createContext, ReactNode, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 type ColorMode = 'light' | 'dark';
@@ -24,6 +24,10 @@ const ToggleColorMode: React.FC<ToggleColorModeProps> = ({ children }) => {
   const toggleColorMode = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
+
+  useEffect(() => {
+    document.documentElement.style.colorScheme = mode;
+  }, [mode]);
 
   const colorMode = useMemo<ColorModeContextProps>(
     () => ({

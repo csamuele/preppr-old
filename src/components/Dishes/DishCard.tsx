@@ -10,9 +10,10 @@ import { CheckCircle, Cancel } from "@mui/icons-material";
 
 interface DishCardProps {
   dish: any;
+  onEdit: () => void;
 }
 
-const DishCard: React.FC<DishCardProps> = ({ dish }) => {
+const DishCard: React.FC<DishCardProps> = ({ dish, onEdit }) => {
   const isActive = dish.isActive;
 
   return (
@@ -28,7 +29,7 @@ const DishCard: React.FC<DishCardProps> = ({ dish }) => {
             zIndex: 1
           }}
         >
-          <IconButton>
+          <IconButton onClick={onEdit}>
             <EditIcon />
           </IconButton>
         </Box>

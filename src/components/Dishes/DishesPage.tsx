@@ -88,7 +88,7 @@ const DishesPage: React.FC = () => {
                     },
 
                 ].map((dish) => {
-                    return <DishCard dish={dish} />;
+                    return <DishCard dish={dish} onEdit={handleOpen}/>;
                 })}
             </Grid>
             <Grid item xs={12} lg={3}>
