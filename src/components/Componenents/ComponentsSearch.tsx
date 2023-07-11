@@ -1,7 +1,6 @@
 import PopupWindow, {PopupWindowProps} from "../Utils/PopupWindow";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import ComponenentsTable from "./ComponentsTable";
 
 const ComponenentsSearch:React.FC<PopupWindowProps> = ({open, onClose}) => {
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {

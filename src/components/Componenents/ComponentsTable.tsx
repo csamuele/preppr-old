@@ -13,9 +13,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from '@mui/material/Typography';
 import Remove from '@mui/icons-material/Remove';
-import Clear from '@mui/icons-material/Clear';
 import Edit from '@mui/icons-material/Edit';
-import { useTheme } from '@mui/material/styles';
 import ComponentNewEdit from './ComponentNewEdit';
 
 interface RowProps {
@@ -40,7 +38,6 @@ const Row: React.FC<RowProps> = ({ component }) => {
   const [editOpen, setEditOpen] = React.useState(false);
   const handleEditOpen = () => setEditOpen(true);
   const handleEditClose = () => setEditOpen(false);
-  const theme = useTheme();
 
   return (
     <React.Fragment>
