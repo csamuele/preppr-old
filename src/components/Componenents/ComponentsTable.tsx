@@ -14,12 +14,18 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from '@mui/material/Typography';
 import Remove from '@mui/icons-material/Remove';
 import Clear from '@mui/icons-material/Clear';
+import Edit from '@mui/icons-material/Edit';
 import { useTheme } from '@mui/material/styles';
+import ComponentNewEdit from './ComponentNewEdit';
 
 interface RowProps {
   component: {
     componentId: number;
     name: string;
+    dishes: {
+      dishId: number;
+      name: string;
+    }[];
     tasks: {
       taskId: number;
       prepList: string;
@@ -31,6 +37,9 @@ interface RowProps {
 
 const Row: React.FC<RowProps> = ({ component }) => {
   const [open, setOpen] = React.useState(false);
+  const [editOpen, setEditOpen] = React.useState(false);
+  const handleEditOpen = () => setEditOpen(true);
+  const handleEditClose = () => setEditOpen(false);
   const theme = useTheme();
 
   return (
@@ -54,6 +63,10 @@ const Row: React.FC<RowProps> = ({ component }) => {
           <Typography variant="h6" sx={{ flex: 1 }}>
             {component.name}
           </Typography>
+          <IconButton aria-label="edit" onClick={handleEditOpen}>
+            <Edit />
+          </IconButton>
+          <ComponentNewEdit open={editOpen} onClose={handleEditClose} component={component} />
           <IconButton aria-label="remove" color="error">
             <Remove />
           </IconButton>
@@ -68,7 +81,6 @@ const Row: React.FC<RowProps> = ({ component }) => {
                 <TableCell>Task</TableCell>
                 <TableCell>Prep List</TableCell>
                 <TableCell align="right">Par</TableCell>
-                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -77,11 +89,6 @@ const Row: React.FC<RowProps> = ({ component }) => {
                   <TableCell>{taskRow.name}</TableCell>
                   <TableCell>{taskRow.prepList}</TableCell>
                   <TableCell align="right">{taskRow.par}</TableCell>
-                  <TableCell>
-                    <IconButton aria-label="Clear" color="error">
-                      <Clear />
-                    </IconButton>
-                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -97,6 +104,10 @@ interface ComponentsTableProps {
   componentsList: {
     componentId: number;
     name: string;
+    dishes: {
+      dishId: number;
+      name: string;
+    }[];
     tasks: {
       taskId: number;
       prepList: string;

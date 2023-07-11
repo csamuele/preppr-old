@@ -8,21 +8,23 @@ import { useTheme } from "@mui/material/styles";
 
 
 export interface PopupWindowProps {
+  sm?: number;
+  lg?: number;
   open: boolean;
   onClose: () => void;
   children?: React.ReactNode;
 }
 
-const PopupWindow: React.FC<PopupWindowProps> = ({ open, onClose, children }) => {
+const PopupWindow: React.FC<PopupWindowProps> = ({ sm = 400, lg = 550, open, onClose, children }) => {
   const theme = useTheme();
   const style = {
     position: "absolute" as "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 550,
+    width: lg,
     [theme.breakpoints.down("sm")]: {
-      width: 400,
+      width: sm,
     },
     bgcolor: "background.paper",
     border: "2px solid #000",

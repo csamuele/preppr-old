@@ -12,14 +12,22 @@ import Select from '../Utils/Select';
 import PopupWindow from "../Utils/PopupWindow";
 import Button from "@mui/material/Button/Button";
 import ComponentsTable from "../Componenents/ComponentsTable";
+import ComponenentsSearch from "../Componenents/ComponentsSearch";
 
 const MockDish = {
   dishId: 1,
   name: "Hangar Steak",
+  station: "Flat Top",
   components: [
     {
       componentId: 1,
       name: "Hangar Steak",
+      dishes: [
+        {
+          dishId: 1,
+          name: "Hangar Steak",
+        }
+      ],
       tasks: [
         {
           taskId: 1,
@@ -32,6 +40,16 @@ const MockDish = {
     {
       componentId: 2,
       name: "Corn Puree",
+      dishes: [
+        {
+          dishId: 1,
+          name: "Hangar Steak",
+        },
+        {
+          dishId: 2,
+          name: "Corn Pasta",
+        }
+      ],
       tasks: [
         {
           taskId: 2,
@@ -56,6 +74,12 @@ const MockDish = {
     {
       componentId: 3,
       name: "Corn Bread",
+      dishes: [
+        {
+          dishId: 1,
+          name: "Hangar Steak",
+        }
+      ],
       tasks: [
         {
           taskId: 5,
@@ -81,8 +105,10 @@ interface DishNewEditProps {
 }
 
 const DishNewEdit: React.FC<DishNewEditProps> = ({ open, onClose }) => {
-    const [station, setStation] = React.useState('');
-
+    const [station, setStation] = React.useState(MockDish.station);
+    const [openComponentsSearch, setOpenComponentsSearch] = React.useState(false);
+    const handleOpenComponentsSearch = () => setOpenComponentsSearch(true);
+    const handleCloseComponentsSearch = () => setOpenComponentsSearch(false);
     const handleChange = (event: SelectChangeEvent) => {
       setStation(event.target.value as string);
     };
@@ -106,6 +132,8 @@ const DishNewEdit: React.FC<DishNewEditProps> = ({ open, onClose }) => {
           </Grid>
           <Grid item xs={12}>
             <ComponentsTable componentsList={MockDish.components}/>
+            <Button onClick={handleOpenComponentsSearch}>Add Component</Button>
+            <ComponenentsSearch open={openComponentsSearch} onClose={handleCloseComponentsSearch}/>
           </Grid>
           <Grid item xs={12}>
             <Button onClick={onClose}>Save</Button>
