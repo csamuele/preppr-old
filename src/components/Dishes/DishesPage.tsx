@@ -17,7 +17,7 @@ const DishesPage: React.FC = () => {
     const handleClose = () => setOpen(false);
     return (
         <Grid container spacing={2}>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} lg={12}>
                 <TextField
                     label="Search"
                     variant="outlined"
@@ -25,7 +25,10 @@ const DishesPage: React.FC = () => {
                     fullWidth
                 />
             </Grid>
-
+            <Grid item xs={12} lg={3}>
+                <Button onClick={handleOpen}>New Dish</Button>
+                <DishNewEdit open={open} onClose={handleClose} />
+            </Grid>
             <Grid item container spacing={2} xs={12}>
                 {[
                     {
@@ -47,10 +50,6 @@ const DishesPage: React.FC = () => {
                 ].map((dish) => {
                     return <DishCard dish={dish} onEdit={handleOpen}/>;
                 })}
-            </Grid>
-            <Grid item xs={12} lg={3}>
-                <Button onClick={handleOpen}>Create New</Button>
-                <DishNewEdit open={open} onClose={handleClose} />
             </Grid>
         </Grid>
     );

@@ -27,7 +27,7 @@ interface ComponentNewEditProps {
 
 const ComponentNewEdit: React.FC<ComponentNewEditProps> = ({ open, onClose, component }) => {
     return (
-        <PopupWindow open={open} onClose={onClose} lg={800}>
+        <PopupWindow open={open} onClose={onClose} md={800}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField label="Name" variant="standard" value={component.name} />
@@ -43,7 +43,7 @@ const ComponentNewEdit: React.FC<ComponentNewEditProps> = ({ open, onClose, comp
                 </Grid>
                 <Grid item xs={12}>
                     <Button>Add Task</Button>
-                    <Box maxHeight="50vh" overflow="auto">
+                    <Box maxHeight="55vh" overflow="auto" p={1}>
                         <Grid container spacing={2}>
                             {component.tasks.map((task) => (
 

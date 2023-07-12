@@ -113,6 +113,7 @@ const DishNewEdit: React.FC<DishNewEditProps> = ({ open, onClose }) => {
       onClose={onClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      lg={550}
     >
         <Grid container spacing={3}>
           <Grid item xs={12}>
