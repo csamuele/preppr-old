@@ -501,502 +501,286 @@ const mockPrepLists = [
 ];
 
  const mockTasks = [
-    {
-      taskId: 1,
-      name: 'Wash Romaine',
-      component: 'Romaine',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 2,
-      name: 'Cut Romaine',
-      component: 'Romaine',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 101,
-      name: 'Make Green Goddess',
-      component: 'Green Goddess',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 102,
-      name: 'Stock Green Goddess',
-      component: 'Green Goddess',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 201,
-      name: 'Stock Bleu Cheese',
-      component: 'Bleu Cheese',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 301,
-      name: 'Make Bacon Lardons',
-      component: 'Bacon Lardons',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 302,
-      name: 'Stock Bacon Lardons',
-      component: 'Bacon Lardons',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 401,
-      name: 'Make Pickled Red Onion',
-      component: 'Pickled Red Onion',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 402,
-      name: 'Stock Pickled Red Onion',
-      component: 'Pickled Red Onion',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 501,
-      name: 'Cut Watermelon',
-      component: 'Watermelon',
-      prepList: 'Pantry'
-    },
-    { taskId: 601, name: 'Stock Feta', component: 'Feta', prepList: 'Pantry' },
-    { taskId: 701, name: 'Stock Mint', component: 'Mint', prepList: 'Pantry' },
-    {
-      taskId: 801,
-      name: 'Stock Balsamic',
-      component: 'Balsamic',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 901,
-      name: 'Stock Olive Oil',
-      component: 'Olive Oil',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1001,
-      name: 'Portion Pork Belly',
-      component: 'Pork Belly',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1101,
-      name: 'Stock Soy Sauce',
-      component: 'Soy Sauce',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1201,
-      name: 'Stock Brown Sugar',
-      component: 'Brown Sugar',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1301,
-      name: 'Stock Garlic',
-      component: 'Garlic',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1401,
-      name: 'Stock Ginger',
-      component: 'Ginger',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1501,
-      name: 'Stock Scallion',
-      component: 'Scallion',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1601,
-      name: 'Stock Cilantro',
-      component: 'Cilantro',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1701,
-      name: 'Stock Lime',
-      component: 'Lime',
-      prepList: 'Pantry'
-    },
-    {
-      taskId: 1801,
-      name: 'Portion Corn Pasta',
-      component: 'Corn Pasta',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 1901,
-      name: 'Stock Corn',
-      component: 'Corn',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2001,
-      name: 'Make Gnocci',
-      component: 'Potato Gnocci',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2002,
-      name: 'Stock Gnocci',
-      component: 'Potato Gnocci',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2101,
-      name: 'Portion Shorty',
-      component: 'Shorty',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2102,
-      name: 'Braise Shorty',
-      component: 'Shorty',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2201,
-      name: 'Stock Cream',
-      component: 'Cream',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2301,
-      name: 'Stock Beef Jus',
-      component: 'Beef Jus',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2401,
-      name: 'Make Pickled Shallot',
-      component: 'Pickled Shallot',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2402,
-      name: 'Stock Pickled Shallot',
-      component: 'Pickled Shallot',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2501,
-      name: 'Stock Creme Fraiche',
-      component: 'Creme Fraiche',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2502,
-      name: 'Make Creme Fraiche',
-      component: 'Creme Fraiche',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2601,
-      name: 'Kill Trout',
-      component: 'Trout',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2602,
-      name: 'Butch Trout',
-      component: 'Trout',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2603,
-      name: 'Stock Trout',
-      component: 'Trout',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2701,
-      name: 'Stock Cauliflower',
-      component: 'Cauliflower',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2801,
-      name: 'Stock Caper',
-      component: 'Caper',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 2901,
-      name: 'Stock Brown Butter',
-      component: 'Brown Butter',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 3001,
-      name: 'Stock Lemon',
-      component: 'Lemon',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 3101,
-      name: 'Stock Parsley',
-      component: 'Parsley',
-      prepList: 'Sautee'
-    },
-    {
-      taskId: 3201,
-      name: 'Portion Pork Loin',
-      component: 'Pork Loin',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3202,
-      name: 'Stock Pork Loin',
-      component: 'Pork Loin',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3301,
-      name: 'Stock Peach Glaze',
-      component: 'Peach Glaze',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3401,
-      name: 'Stock Grilled Peaches',
-      component: 'Grilled Peaches',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3501,
-      name: 'Stock Polenta',
-      component: 'Polenta',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3601,
-      name: 'Stock Chow Chow',
-      component: 'Chow Chow',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3701,
-      name: 'Stock Garnish',
-      component: 'Garnish',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3801,
-      name: 'Portion Hangar Steak',
-      component: 'Hangar Steak',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3802,
-      name: 'Stock Hangar Steak',
-      component: 'Hangar Steak',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 3901,
-      name: 'Stock Chimichurri',
-      component: 'Chimichurri',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4001,
-      name: 'Stock Fingerling Potato',
-      component: 'Fingerling Potato',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4101,
-      name: 'Stock Cherry Tomato',
-      component: 'Cherry Tomato',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4201,
-      name: 'Stock Arugula',
-      component: 'Arugula',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4301,
-      name: 'Stock Garnish',
-      component: 'Garnish',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4401,
-      name: 'Sues Vide Chicken Breast',
-      component: 'Chicken Breast',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4402,
-      name: 'Stock Chicken Breast',
-      component: 'Chicken Breast',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4501,
-      name: 'Boil Fingerlings',
-      component: 'Smashed Potato',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4502,
-      name: 'Stock Smashed Potato',
-      component: 'Smashed Potato',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4601,
-      name: 'Make Potato Salad Dressing',
-      component: 'Potato Salad Dressing',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4602,
-      name: 'Stock Potato Salad Dressing',
-      component: 'Potato Salad Dressing',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4701,
-      name: 'Grill Squash',
-      component: 'Grilled Squash',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4801,
-      name: 'Stock Garnish',
-      component: 'Garnish',
-      prepList: 'Flat Top'
-    },
-    {
-      taskId: 4901,
-      name: 'Stock Burger Patty',
-      component: 'Burger Patty',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5001,
-      name: 'Stock Brioche Bun',
-      component: 'Brioche Bun',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5101,
-      name: 'Stock Lettuce',
-      component: 'Lettuce',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5201,
-      name: 'Stock Cheese',
-      component: 'Cheese',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5301,
-      name: 'Make Burger Sauce',
-      component: 'Burger Sauce',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5302,
-      name: 'Stock Burger Sauce',
-      component: 'Burger Sauce',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5401,
-      name: 'Stock Fries',
-      component: 'Fries',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5501,
-      name: 'Stock Salt',
-      component: 'Salt',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5601,
-      name: 'Stock Pepper',
-      component: 'Pepper',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5701,
-      name: 'Stock Parsley',
-      component: 'Parsley',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5801,
-      name: 'Stock Garlic',
-      component: 'Garlic',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 5901,
-      name: 'Stock Parmesan',
-      component: 'Parmesan',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6001,
-      name: 'Stock Truffle Oil',
-      component: 'Truffle Oil',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6101,
-      name: 'Stock Wings',
-      component: 'Wings',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6201,
-      name: 'Make Buffalo Sauce',
-      component: 'Buffalo Sauce',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6202,
-      name: 'Stock Buffalo Sauce',
-      component: 'Buffalo Sauce',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6301,
-      name: 'Crumble Blue Cheese',
-      component: 'Blue Cheese',
-      prepList: 'Next Door'
-    },
-    {
-      taskId: 6401,
-      name: 'Stock Celery',
-      component: 'Celery',
-      prepList: 'Next Door'
-    }
-  ];
+  { taskId: 1, name: 'Wash Romaine', component: 1, prepList: 1 },
+  { taskId: 2, name: 'Cut Romaine', component: 1, prepList: 1 },
+  {
+    taskId: 101,
+    name: 'Make Green Goddess',
+    component: 2,
+    prepList: 1
+  },
+  {
+    taskId: 102,
+    name: 'Stock Green Goddess',
+    component: 2,
+    prepList: 1
+  },
+  { taskId: 201, name: 'Stock Bleu Cheese', component: 3, prepList: 1 },
+  {
+    taskId: 301,
+    name: 'Make Bacon Lardons',
+    component: 4,
+    prepList: 1
+  },
+  {
+    taskId: 302,
+    name: 'Stock Bacon Lardons',
+    component: 4,
+    prepList: 1
+  },
+  {
+    taskId: 401,
+    name: 'Make Pickled Red Onion',
+    component: 5,
+    prepList: 1
+  },
+  {
+    taskId: 402,
+    name: 'Stock Pickled Red Onion',
+    component: 5,
+    prepList: 1
+  },
+  { taskId: 501, name: 'Cut Watermelon', component: 6, prepList: 1 },
+  { taskId: 601, name: 'Stock Feta', component: 7, prepList: 1 },
+  { taskId: 701, name: 'Stock Mint', component: 8, prepList: 1 },
+  { taskId: 801, name: 'Stock Balsamic', component: 9, prepList: 1 },
+  { taskId: 901, name: 'Stock Olive Oil', component: 10, prepList: 1 },
+  {
+    taskId: 1001,
+    name: 'Portion Pork Belly',
+    component: 11,
+    prepList: 1
+  },
+  { taskId: 1101, name: 'Stock Soy Sauce', component: 12, prepList: 1 },
+  {
+    taskId: 1201,
+    name: 'Stock Brown Sugar',
+    component: 13,
+    prepList: 1
+  },
+  { taskId: 1301, name: 'Stock Garlic', component: 14, prepList: 1 },
+  { taskId: 1401, name: 'Stock Ginger', component: 15, prepList: 1 },
+  { taskId: 1501, name: 'Stock Scallion', component: 16, prepList: 1 },
+  { taskId: 1601, name: 'Stock Cilantro', component: 17, prepList: 1 },
+  { taskId: 1701, name: 'Stock Lime', component: 18, prepList: 1 },
+  {
+    taskId: 1801,
+    name: 'Portion Corn Pasta',
+    component: 19,
+    prepList: 2
+  },
+  { taskId: 1901, name: 'Stock Corn', component: 20, prepList: 2 },
+  { taskId: 2001, name: 'Make Gnocci', component: 21, prepList: 2 },
+  { taskId: 2002, name: 'Stock Gnocci', component: 21, prepList: 2 },
+  { taskId: 2101, name: 'Portion Shorty', component: 22, prepList: 2 },
+  { taskId: 2102, name: 'Braise Shorty', component: 22, prepList: 2 },
+  { taskId: 2201, name: 'Stock Cream', component: 23, prepList: 2 },
+  { taskId: 2301, name: 'Stock Beef Jus', component: 24, prepList: 2 },
+  {
+    taskId: 2401,
+    name: 'Make Pickled Shallot',
+    component: 25,
+    prepList: 2
+  },
+  {
+    taskId: 2402,
+    name: 'Stock Pickled Shallot',
+    component: 25,
+    prepList: 2
+  },
+  {
+    taskId: 2501,
+    name: 'Stock Creme Fraiche',
+    component: 26,
+    prepList: 2
+  },
+  {
+    taskId: 2502,
+    name: 'Make Creme Fraiche',
+    component: 26,
+    prepList: 2
+  },
+  { taskId: 2601, name: 'Kill Trout', component: 27, prepList: 2 },
+  { taskId: 2602, name: 'Butch Trout', component: 27, prepList: 2 },
+  { taskId: 2603, name: 'Stock Trout', component: 27, prepList: 2 },
+  {
+    taskId: 2701,
+    name: 'Stock Cauliflower',
+    component: 28,
+    prepList: 2
+  },
+  { taskId: 2801, name: 'Stock Caper', component: 29, prepList: 2 },
+  {
+    taskId: 2901,
+    name: 'Stock Brown Butter',
+    component: 30,
+    prepList: 2
+  },
+  { taskId: 3001, name: 'Stock Lemon', component: 31, prepList: 2 },
+  { taskId: 3101, name: 'Stock Parsley', component: 32, prepList: 2 },
+  {
+    taskId: 3201,
+    name: 'Portion Pork Loin',
+    component: 33,
+    prepList: 3
+  },
+  { taskId: 3202, name: 'Stock Pork Loin', component: 33, prepList: 3 },
+  {
+    taskId: 3301,
+    name: 'Stock Peach Glaze',
+    component: 34,
+    prepList: 3
+  },
+  {
+    taskId: 3401,
+    name: 'Stock Grilled Peaches',
+    component: 35,
+    prepList: 3
+  },
+  { taskId: 3501, name: 'Stock Polenta', component: 36, prepList: 3 },
+  { taskId: 3601, name: 'Stock Chow Chow', component: 37, prepList: 3 },
+  { taskId: 3701, name: 'Stock Garnish', component: 38, prepList: 3 },
+  {
+    taskId: 3801,
+    name: 'Portion Hangar Steak',
+    component: 39,
+    prepList: 3
+  },
+  {
+    taskId: 3802,
+    name: 'Stock Hangar Steak',
+    component: 39,
+    prepList: 3
+  },
+  {
+    taskId: 3901,
+    name: 'Stock Chimichurri',
+    component: 40,
+    prepList: 3
+  },
+  {
+    taskId: 4001,
+    name: 'Stock Fingerling Potato',
+    component: 41,
+    prepList: 3
+  },
+  {
+    taskId: 4101,
+    name: 'Stock Cherry Tomato',
+    component: 42,
+    prepList: 3
+  },
+  { taskId: 4201, name: 'Stock Arugula', component: 43, prepList: 3 },
+  { taskId: 4301, name: 'Stock Garnish', component: 38, prepList: 3 },
+  {
+    taskId: 4401,
+    name: 'Sues Vide Chicken Breast',
+    component: 45,
+    prepList: 3
+  },
+  {
+    taskId: 4402,
+    name: 'Stock Chicken Breast',
+    component: 45,
+    prepList: 3
+  },
+  {
+    taskId: 4501,
+    name: 'Boil Fingerlings',
+    component: 46,
+    prepList: 3
+  },
+  {
+    taskId: 4502,
+    name: 'Stock Smashed Potato',
+    component: 46,
+    prepList: 3
+  },
+  {
+    taskId: 4601,
+    name: 'Make Potato Salad Dressing',
+    component: 47,
+    prepList: 3
+  },
+  {
+    taskId: 4602,
+    name: 'Stock Potato Salad Dressing',
+    component: 47,
+    prepList: 3
+  },
+  { taskId: 4701, name: 'Grill Squash', component: 48, prepList: 3 },
+  { taskId: 4801, name: 'Stock Garnish', component: 38, prepList: 3 },
+  {
+    taskId: 4901,
+    name: 'Stock Burger Patty',
+    component: 50,
+    prepList: 4
+  },
+  {
+    taskId: 5001,
+    name: 'Stock Brioche Bun',
+    component: 51,
+    prepList: 4
+  },
+  { taskId: 5101, name: 'Stock Lettuce', component: 52, prepList: 4 },
+  { taskId: 5201, name: 'Stock Cheese', component: 53, prepList: 4 },
+  {
+    taskId: 5301,
+    name: 'Make Burger Sauce',
+    component: 54,
+    prepList: 4
+  },
+  {
+    taskId: 5302,
+    name: 'Stock Burger Sauce',
+    component: 54,
+    prepList: 4
+  },
+  { taskId: 5401, name: 'Stock Fries', component: 55, prepList: 4 },
+  { taskId: 5501, name: 'Stock Salt', component: 56, prepList: 4 },
+  { taskId: 5601, name: 'Stock Pepper', component: 57, prepList: 4 },
+  { taskId: 5701, name: 'Stock Parsley', component: 32, prepList: 4 },
+  { taskId: 5801, name: 'Stock Garlic', component: 14, prepList: 4 },
+  { taskId: 5901, name: 'Stock Parmesan', component: 60, prepList: 4 },
+  {
+    taskId: 6001,
+    name: 'Stock Truffle Oil',
+    component: 61,
+    prepList: 4
+  },
+  { taskId: 6101, name: 'Stock Wings', component: 62, prepList: 4 },
+  {
+    taskId: 6201,
+    name: 'Make Buffalo Sauce',
+    component: 63,
+    prepList: 4
+  },
+  {
+    taskId: 6202,
+    name: 'Stock Buffalo Sauce',
+    component: 63,
+    prepList: 4
+  },
+  {
+    taskId: 6301,
+    name: 'Crumble Blue Cheese',
+    component: 64,
+    prepList: 4
+  },
+  { taskId: 6401, name: 'Stock Celery', component: 65, prepList: 4 }
+];
 
-
-  const replaceComponentAndPrepListNamesWithIds = (tasks) => {
-    const newTasks = tasks.map(task => {
-      const component = mockComponents.find(component => component.name === task.component);
-      const prepList = mockPrepLists.find(prepList => prepList.name === task.prepList);
-      return {
-        ...task,
-        component: component.componentId,
-        prepList: prepList.prepListId
-      };
+  //add par to tasks array with a string containing a random number from 0-10 and a unit of measurement. If the number is 0, the par is 0, make the string empty
+  const addParToTasks = (tasks) => {
+    return tasks.map(task => {
+      const randomNumber = Math.floor(Math.random() * 10);
+      if (randomNumber === 0) {
+        task.par = '';
+      } else {
+        task.par = `${randomNumber} ${randomNumber === 1 ? 'unit' : 'units'}`;
+      }
+      return task;
     });
-    return newTasks;
   }
 
-  console.log(replaceComponentAndPrepListNamesWithIds(mockTasks));
+  console.log(addParToTasks(mockTasks));

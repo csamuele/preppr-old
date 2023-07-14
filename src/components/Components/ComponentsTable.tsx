@@ -15,29 +15,23 @@ import Typography from '@mui/material/Typography';
 import Remove from '@mui/icons-material/Remove';
 import Edit from '@mui/icons-material/Edit';
 import ComponentNewEdit from './ComponentNewEdit';
+import { Component, Task } from '../../types';
+import { selectTasksByComponent } from '../../features/tasks/tasksSlice';
+import { useSelector } from 'react-redux';
+import TaskRow from '../Tasks/TaskRow';
 
 interface RowProps {
-  component: {
-    componentId: number;
-    name: string;
-    dishes: {
-      dishId: number;
-      name: string;
-    }[];
-    tasks: {
-      taskId: number;
-      prepList: string;
-      name: string;
-      par: string;
-    }[];
-  };
+  component: Component
 }
 
 const Row: React.FC<RowProps> = ({ component }) => {
   const [open, setOpen] = React.useState(false);
   const [editOpen, setEditOpen] = React.useState(false);
-  const handleEditOpen = () => setEditOpen(true);
+  const handleEditOpen = () => {
+    setEditOpen(true)
+  };
   const handleEditClose = () => setEditOpen(false);
+  const tasks: Task[] | undefined = useSelector(selectTasksByComponent(component.componentId));
 
   return (
     <React.Fragment>
@@ -81,13 +75,9 @@ const Row: React.FC<RowProps> = ({ component }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {component.tasks.map((taskRow) => (
-                <TableRow key={taskRow.taskId}>
-                  <TableCell>{taskRow.name}</TableCell>
-                  <TableCell>{taskRow.prepList}</TableCell>
-                  <TableCell align="right">{taskRow.par}</TableCell>
-                </TableRow>
-              ))}
+              {tasks? tasks.map((task) => (
+                  <TaskRow key={task.taskId} task={task} />
+              )) : null}
             </TableBody>
           </Table>
         </TableContainer>
@@ -98,20 +88,7 @@ const Row: React.FC<RowProps> = ({ component }) => {
 };
 
 interface ComponentsTableProps {
-  componentsList: {
-    componentId: number;
-    name: string;
-    dishes: {
-      dishId: number;
-      name: string;
-    }[];
-    tasks: {
-      taskId: number;
-      prepList: string;
-      name: string;
-      par: string;
-    }[];
-  }[];
+  componentsList: Component[];
 }
 
 const ComponentsTable: React.FC<ComponentsTableProps> = ({ componentsList }) => {

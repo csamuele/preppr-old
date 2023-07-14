@@ -1,15 +1,13 @@
 import { Button, Grid, MenuItem, Paper, TextField } from "@mui/material";
 import Select from '../Utils/Select';
 import React, { useState } from "react";
-import { SelectChangeEvent } from "@mui/material/Select/Select";
+import { Task } from "../../types";
+import { useSelector } from "react-redux";
+import { selectAllPrepLists } from "../../features/preplists/prepListsSlice";
+import Option  from "../Utils/Option";
 
 interface TaskCardProps {
-    task: {
-        taskId: number;
-        prepList: string;
-        name: string;
-        par: string;
-    };
+    task: Task;
     onEdit?: () => void;
     onDelete?: () => void;
 };
@@ -17,9 +15,15 @@ interface TaskCardProps {
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
     const [prepList, setPrepList] = useState(task.prepList);
-    const handleChange = (event: SelectChangeEvent) => {
-        setPrepList(event.target.value as string);
+    const handleChange = (value: number) => {
+        setPrepList(value as number);
       };
+    const options: Option[] = useSelector(selectAllPrepLists).map((prepList): Option => {
+        return {
+            value: prepList.prepListId,
+            label: prepList.name
+        };
+    });
     return (
 
         <Grid item xs={12} md={4}>
@@ -29,13 +33,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
                     <TextField label="Task" variant="standard" value={task.name} />
                 </Grid>
                 <Grid item xs={12}>
-                    <Select id="preplist-select" label="Prep List" value={prepList} onChange={handleChange}>
-                        <MenuItem value="Prep 1">Prep 1</MenuItem>
-                        <MenuItem value="Prep 2">Prep 2</MenuItem>
-                        <MenuItem value="Flat Top">Flat Top</MenuItem>
-                        <MenuItem value="Sautee">Sautee</MenuItem>
-                        <MenuItem value="Next Door">Next Door</MenuItem>
-                    </Select>
+                    <Select id="preplist-select" label="Prep List" options={options} value={prepList} onChange={handleChange} />
                 </Grid>
                 <Grid item xs={12}>
                     <TextField label="Par" variant="standard" value={task.par} />

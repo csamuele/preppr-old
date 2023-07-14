@@ -50,6 +50,14 @@ const stationsSlice = createSlice({
 });
 
 export const selectAllStations = (state: { stations: StationsState }) => state.stations.stations;
+export const selectStationById = (stationId: number) => createSelector(
+  selectAllStations,
+  stations => stations.find(station => station.stationId === stationId)
+);
+export const selectStationsByDish = (dishId: number) => createSelector(
+  selectAllStations,
+  stations => stations.filter(station => station.dishes.includes(dishId))
+);
 
 export const { addStation, removeStation, updateStationName } = stationsSlice.actions;
 

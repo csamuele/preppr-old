@@ -1,13 +1,14 @@
 //Make slice for tasks
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Task } from '../../types';
-
+import { createSelector } from '@reduxjs/toolkit';
+import { mockTasks } from '../../mockData';
 interface TasksState {
     tasks: Task[];
 }
 
 const initialState: TasksState = {
-    tasks: [],
+    tasks: mockTasks,
 };
 
 const tasksSlice = createSlice({
@@ -20,6 +21,12 @@ const tasksSlice = createSlice({
 
     },
 });
+
+export const selectAllTasks = (state: { tasks: TasksState }) => state.tasks.tasks;
+export const selectTasksByComponent = (componentId: number) => createSelector(
+    selectAllTasks,
+    tasks => tasks.filter(task => task.component === componentId)
+);
 
 export const { addTask } = tasksSlice.actions;
 

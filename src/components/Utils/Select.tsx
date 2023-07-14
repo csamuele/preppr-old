@@ -1,27 +1,39 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import MuiSelect, { SelectChangeEvent } from '@mui/material/Select';
-import { v4 as uuidv4 } from 'uuid';
+import Option from './Option';
 
-interface SelectProps<T = unknown> {
-  id?: string;
-  value: T;
-  children: React.ReactNode;
+
+type SelectProps = {
+  id: string;
+  value: number;
+  options: Option[];
   label: string;
-  onChange: (event: SelectChangeEvent<T>) => void;
-}
+  onChange: (value: number) => void;
+};
 
-const Select = <T,>(props: SelectProps<T>) => {
-  const { id = uuidv4(), value, children, label, onChange, ...rest } = props;
+const Select: React.FC<SelectProps> = ({id, value, options, label, onChange}) => {
+  const handleChange = (event: SelectChangeEvent<number>) => {
+    onChange(event.target.value as number);
+  };
 
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
         <InputLabel id={`${id}-label`}>{label}</InputLabel>
-        <MuiSelect {...rest} labelId={`${id}-label`} id={id} value={value} label={label} onChange={onChange}>
-          {children}
+        <MuiSelect
+          labelId={`${id}-label`}
+          id={id}
+          value={value}
+          label={label}
+          onChange={handleChange}
+        >
+          {options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+          ))}
         </MuiSelect>
       </FormControl>
     </Box>

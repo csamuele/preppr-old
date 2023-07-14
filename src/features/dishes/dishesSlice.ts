@@ -70,11 +70,27 @@ const dishesSlice = createSlice({
 
 export const selectAllDishes = (state: { dishes: DishesState }) => state.dishes.dishes;
 export const selectDishById = (state: { dishes: DishesState }, dishId: number) => state.dishes.dishes.find(dish => dish.dishId === dishId);
-export const selectDishByStation = (stationId: number) => 
+export const selectDishesByStation = (stationId: number) => 
   createSelector(
     (state: { dishes: DishesState }) => state.dishes.dishes,
     (dishes) => dishes.filter(dish => dish.stations.includes(stationId))
 );
+export const selectDishesByComponent = (componentId: number) =>
+    createSelector(
+        (state: { dishes: DishesState }) => state.dishes.dishes,
+        (dishes) => dishes.filter(dish => dish.components.includes(componentId))
+);
+
+
+export const createDish = () => {
+    const dishId = Math.floor(Math.random() * 100000);
+    return {
+        dishId,
+        name: '',
+        stations: [],
+        components: [],
+    };
+};
 
 //export actions
 export const { addDish, removeDish, updateDishName, addStationToDish, removeStationFromDish, addComponentToDish, removeComponentFromDish } = dishesSlice.actions;

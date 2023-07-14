@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { Station } from '../../types';
 import { useSelector } from 'react-redux';
-import { selectDishByStation } from '../../features/dishes/dishesSlice';
+import { selectDishesByStation } from '../../features/dishes/dishesSlice';
 
 interface StationCardProps {
     station: Station;
@@ -14,7 +14,7 @@ interface StationCardProps {
 
 const StationCard: React.FC<StationCardProps> = ({station}) => {
     
-    const selectDishes = selectDishByStation(station.stationId);
+    const selectDishes = selectDishesByStation(station.stationId);
     const dishes = useSelector(selectDishes);
     
 

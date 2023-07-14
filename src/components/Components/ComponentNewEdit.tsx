@@ -5,27 +5,20 @@ import Chip from "@mui/material/Chip";
 import Add from "@mui/icons-material/Add";
 import TaskCard from "../Tasks/TaskCard";
 import Box from "@mui/material/Box";
+import { Component } from "../../types";
+import { useSelector } from "react-redux";
+import { selectDishesByComponent } from "../../features/dishes/dishesSlice";
+import { selectTasksByComponent } from "../../features/tasks/tasksSlice";
 
 interface ComponentNewEditProps {
     open: boolean;
     onClose: () => void;
-    component: {
-        componentId: number;
-        name: string;
-        dishes: {
-            dishId: number;
-            name: string;
-        }[];
-        tasks: {
-            taskId: number;
-            prepList: string;
-            name: string;
-            par: string;
-        }[];
-    }
+    component: Component
 };
 
 const ComponentNewEdit: React.FC<ComponentNewEditProps> = ({ open, onClose, component }) => {
+    const dishes = useSelector(selectDishesByComponent(component.componentId));
+    const tasks = useSelector(selectTasksByComponent(component.componentId));
     return (
         <PopupWindow open={open} onClose={onClose} md={800}>
             <Grid container spacing={2}>
@@ -34,7 +27,7 @@ const ComponentNewEdit: React.FC<ComponentNewEditProps> = ({ open, onClose, comp
                 </Grid>
                 <Grid item xs={12}>
                     <Typography variant="h6">Dishes</Typography>
-                    {component.dishes.map((dish) => (
+                    {dishes.map((dish) => (
                         <Chip key={dish.dishId} label={dish.name} />
                     ))}
                     <IconButton aria-label="add" onClick={() => { }}>
@@ -45,7 +38,7 @@ const ComponentNewEdit: React.FC<ComponentNewEditProps> = ({ open, onClose, comp
                     <Button>Add Task</Button>
                     <Box maxHeight="55vh" overflow="auto" p={1}>
                         <Grid container spacing={2}>
-                            {component.tasks.map((task) => (
+                            {tasks.map((task) => (
 
                                 <TaskCard task={task} key={task.taskId} />
                             ))

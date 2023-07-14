@@ -31,6 +31,7 @@ export interface Task {
     name: string;
     component: number;
     prepList: number;
+    par?: string;
 }
 
 export interface PrepList {
