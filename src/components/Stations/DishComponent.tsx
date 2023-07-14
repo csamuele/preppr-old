@@ -1,13 +1,20 @@
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import {Component} from '../../types';
 
-export default function DishComponent() {
+interface DishComponentProps {
+    component: Component;
+}
+
+const DishComponent:React.FC<DishComponentProps> = ({component}) => {
     return (
         <ListItem>
             <ListItemButton>
-                <ListItemText primary="Component" />
+                <ListItemText primary={component.name} />
             </ListItemButton>
         </ListItem>
     )
 }
+
+export default DishComponent;

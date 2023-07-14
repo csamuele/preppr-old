@@ -6,8 +6,8 @@ import MenuItem from "@mui/material/MenuItem/MenuItem";
 import Select from '../Utils/Select';
 import PopupWindow from "../Utils/PopupWindow";
 import Button from "@mui/material/Button/Button";
-import ComponentsTable from "../Componenents/ComponentsTable";
-import ComponenentsSearch from "../Componenents/ComponentsSearch";
+import ComponentsTable from "../Components/ComponentsTable";
+import ComponenentsSearch from "../Components/ComponentsSearch";
 
 const MockDish = {
   dishId: 1,

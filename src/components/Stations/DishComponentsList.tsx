@@ -5,14 +5,19 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {Dish} from '../../types';
+import { useSelector } from 'react-redux';
+import { selectComponentsByDish } from '../../features/components/componentsSlice';
 
 interface DishComponentsListProps {
     expanded: boolean;
     onChange: (event: React.SyntheticEvent, isExpanded: boolean) => void;
+    dish: Dish;
 }
 
-const DishComponentsList: React.FC<DishComponentsListProps> = ({expanded, onChange}) => {
-
+const DishComponentsList: React.FC<DishComponentsListProps> = ({expanded, onChange, dish}) => {
+    const selectComponents = selectComponentsByDish(dish.dishId);
+    const components = useSelector(selectComponents);
     return (
         <Accordion expanded={expanded} onChange={onChange}>
             <AccordionSummary
@@ -20,13 +25,13 @@ const DishComponentsList: React.FC<DishComponentsListProps> = ({expanded, onChan
             aria-controls="panel1a-content"
             id="panel1a-header"
             >
-                <Typography>Dish</Typography>
+                <Typography>{dish.name}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <List>
-                    <DishComponent/>
-                    <DishComponent/>
-                    <DishComponent/>
+                    {components.map((component) => (
+                        <DishComponent key={component.componentId} component={component} />
+                    ))}
                 </List>
             </AccordionDetails>
         </Accordion>

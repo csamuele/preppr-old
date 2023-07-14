@@ -1,6 +1,6 @@
 import StationsPage from './components/Stations/StationsPage';
 import DishesPage from './components/Dishes/DishesPage';
-import ComponentsPage from './components/Componenents/ComponentsPage';
+import ComponentsPage from './components/Components/ComponentsPage';
 import DownloadPage from './components/Download/DownloadPage';
 import Root from './layout/Root';
 import {
