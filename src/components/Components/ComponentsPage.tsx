@@ -9,6 +9,7 @@ import { selectAllComponents } from '../../features/components/componentsSlice';
 
 
 const ComponentsPage: React.FC = () => {
+    const [searchTerm, setSearchTerm] = React.useState('');
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         // Handle search functionality
         console.log(event.target.value);

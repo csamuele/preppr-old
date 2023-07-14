@@ -5,18 +5,20 @@ import TextField from "@mui/material/TextField";
 import DishNewEdit from "./DishNewEdit";
 import DishCard from "./DishCard";
 import { useSelector, useDispatch } from "react-redux";
-import { selectAllDishes, createDish, addDish } from "../../features/dishes/dishesSlice";
+import { selectDishesBySearchTerm, createDish, addDish } from "../../features/dishes/dishesSlice";
 import { Dish } from "../../types";
+import { RootState } from "../../store";
 
 
 
 const DishesPage: React.FC = () => {
-    const allDishes = useSelector(selectAllDishes);
+    const [searchTerm, setSearchTerm] = React.useState<string | null>(null);
+    const allDishes = useSelector((state: RootState) => selectDishesBySearchTerm(state, searchTerm));
     const dispatch = useDispatch();
     const [newDish, setNewDish] = React.useState<null | Dish>(null);
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         // Handle search functionality
-        console.log(event.target.value);
+        setSearchTerm(event.target.value);
     };
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {

@@ -6,7 +6,7 @@ import componentsReducer from './features/components/componentsSlice';
 import tasksReducer from './features/tasks/tasksSlice';
 import prepListsReducer from './features/preplists/prepListsSlice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     restaurants: retaurantReducer,
     stations: stationReducer,
@@ -17,4 +17,4 @@ const store = configureStore({
   },
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;

@@ -3,6 +3,7 @@
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { Dish } from '../../types';
 import { mockDishes } from '../../mockData';
+import  {RootState}  from '../../store';
 
 
 interface DishesState {
@@ -69,15 +70,19 @@ const dishesSlice = createSlice({
 });
 
 export const selectAllDishes = (state: { dishes: DishesState }) => state.dishes.dishes;
+export const selectDishesBySearchTerm = createSelector(
+    (state: RootState, searchTerm: string | null) => ({ dishes: state.dishes.dishes, searchTerm }),
+    ({ dishes, searchTerm }) => dishes.filter(dish => dish.name.toLowerCase().includes((searchTerm || '').toLowerCase()))
+  );
 export const selectDishById = (state: { dishes: DishesState }, dishId: number) => state.dishes.dishes.find(dish => dish.dishId === dishId);
 export const selectDishesByStation = (stationId: number) => 
   createSelector(
-    (state: { dishes: DishesState }) => state.dishes.dishes,
+    selectAllDishes,
     (dishes) => dishes.filter(dish => dish.stations.includes(stationId))
 );
 export const selectDishesByComponent = (componentId: number) =>
     createSelector(
-        (state: { dishes: DishesState }) => state.dishes.dishes,
+        selectAllDishes,
         (dishes) => dishes.filter(dish => dish.components.includes(componentId))
 );
 
